@@ -10,7 +10,7 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @OneToOne
+   @OneToOne(cascade = CascadeType.ALL)
    @JoinColumn(name = "car_id", referencedColumnName = "id")
    private Car car;
 
@@ -76,5 +76,11 @@ public class User {
 
    public void setCar(Car car) {
       this.car = car;
+   }
+   
+   @Override
+   public String toString() {
+      return "User [id=" + id + ", car=" + car + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+            + email + "]";
    }
 }

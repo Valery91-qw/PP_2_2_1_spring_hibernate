@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import hiber.dao.CarDao;
 import hiber.model.Car;
+import hiber.model.User;
 
 @Service
 public class CarServiceImp implements CarService{
@@ -17,6 +18,12 @@ public class CarServiceImp implements CarService{
     @Override
     public void add(Car car) {
         carDao.add(car);
+    }
+
+    @Transactional
+    @Override
+    public User getUserByModelAndSeries(String model, int series) {
+        return carDao.getUserByModelAndSeries(model ,series);
     }
     
 }
